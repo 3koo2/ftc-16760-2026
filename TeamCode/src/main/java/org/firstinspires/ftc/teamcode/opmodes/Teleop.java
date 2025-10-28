@@ -24,7 +24,8 @@ public class Teleop extends LinearOpMode {
 
             // other player controls:
             this.struct.intake.operateIntake(gamepad2);
-
+            this.struct.turret.operateTurret(gamepad2);
+            this.struct.launcher.controlLauncher(gamepad2);
         }
     }
 }

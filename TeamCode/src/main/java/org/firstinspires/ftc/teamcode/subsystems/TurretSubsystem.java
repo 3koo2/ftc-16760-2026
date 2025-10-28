@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -9,9 +10,11 @@ import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.subsystems.constants.TurretConstants;
 
 public class TurretSubsystem {
-    private DcMotor turret;
+    private DcMotorEx turret;
+    private int turretSetpoint = 0;
     public TurretSubsystem(HardwareMap hwmap, Telemetry tele){
-        this.turret = hwmap.get(DcMotor.class, Constants.MOTOR_NAME_TURRET);
+        this.turret = hwmap.get(DcMotorEx.class, Constants.MOTOR_NAME_TURRET);
+        this.turret.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     public void setRawPower(double power){
@@ -26,7 +29,11 @@ public class TurretSubsystem {
         //define later (field-centric, maybe idk)
     }
 
-    public void goToPosition(int position){
+    public void setSetpoint(int position){
+        this.turretSetpoint = position;
+    }
+
+    public void goToSetpoint(){
         // something with pid, maybe. or not, idk.
         // this should do something.
     }
@@ -37,26 +44,23 @@ public class TurretSubsystem {
             setRawPower(rawPower);
         }
 
-        boolean sp0 = gamepad2.dpad_down;
-        boolean sp1 = gamepad2.dpad_left;
-        boolean sp2 = gamepad2.dpad_up;
-        boolean sp3 = gamepad2.dpad_right;
+        boolean sp0 = gamepad2.dpad_left;
+        boolean sp1 = gamepad2.dpad_right;
         // i doubt i'll keep many of these. probably one to reset to normal 0 position, and the others are
         // auto-aligned towards the basket.
         if (sp0){
-            goToPosition(TurretConstants.SETPOINT_0);
+            setSetpoint(TurretConstants.SETPOINT_0);
         }
         if (sp1){
             // in the future: autotarget left depot
-            goToPosition(TurretConstants.SETPOINT_1);
+            setSetpoint(TurretConstants.SETPOINT_1);
         }
-        if (sp2){
-            goToPosition(TurretConstants.SETPOINT_2);
-        }
-        if (sp3){
-            // in the future autotarget right depot (near ftuure, hopefully)
-            goToPosition(TurretConstants.SETPOINT_3);
-        }
+
+
+        // do the actual things that happen over time; event-type things.?
+        // actions
+
+        goToSetpoint();
     }
 
 }

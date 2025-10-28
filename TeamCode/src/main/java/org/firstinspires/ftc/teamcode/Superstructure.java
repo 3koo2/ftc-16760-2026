@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcontroller.external.samples.UtilityOctoQuadConfigMenu;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.subsystems.IntakeSubsystem;
+import org.firstinspires.ftc.teamcode.subsystems.LauncherSubsystem;
 import org.firstinspires.ftc.teamcode.subsystems.TurretSubsystem;
 import org.firstinspires.ftc.teamcode.subsystems.DriveSubsystem;
 
@@ -12,6 +13,7 @@ public class Superstructure{
     public TurretSubsystem turret;
     public IntakeSubsystem intake;
     public DriveSubsystem drive;
+    public LauncherSubsystem launcher;
 
     private Telemetry telemetry;
     public Superstructure(HardwareMap hwmap, Telemetry tele){
@@ -20,5 +22,6 @@ public class Superstructure{
         this.turret = new TurretSubsystem(hwmap, tele);
         this.intake = new IntakeSubsystem(hwmap, tele);
         this.drive = new DriveSubsystem(hwmap, tele);
+        this.launcher = new LauncherSubsystem(hwmap, tele);
     }
 }

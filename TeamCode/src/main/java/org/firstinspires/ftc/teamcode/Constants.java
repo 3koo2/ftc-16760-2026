@@ -14,4 +14,7 @@ public class Constants {
     public static final String MOTOR_NAME_FR = "fr";
     public static final String MOTOR_NAME_BL = "bl";
     public static final String MOTOR_NAME_BR = "br";
+
+    public static final String MOTOR_NAME_FLYWHEEL = "flywheel";
+    public static final String MOTOR_NAME_AIM = "aim";
 }
