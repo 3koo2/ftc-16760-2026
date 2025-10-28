@@ -1,0 +1,29 @@
+package org.firstinspires.ftc.teamcode.subsystems;
+
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
+public class TurretSubsystem {
+    private DcMotor turret;
+    public TurretSubsystem(HardwareMap hwmap){
+        this.turret = hwmap.get(DcMotor.class, "turret");
+    }
+
+    public void setRawPower(double power){
+        this.turret.setPower(power);
+    }
+
+    public int getTurretPosition(){
+        return this.turret.getCurrentPosition();
+    }
+
+    public void getTurretPositionInSpace(){
+        //define later (field-centric, maybe idk)
+    }
+
+    public void goToPosition(int position){
+        // something with pid, maybe. or not, idk.
+
+    }
+
+}
