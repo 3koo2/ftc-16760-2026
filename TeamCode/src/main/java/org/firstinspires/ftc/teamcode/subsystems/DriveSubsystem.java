@@ -4,13 +4,15 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 public class DriveSubsystem {
     private DcMotor front_left;
     private DcMotor front_right;
     private DcMotor back_left;
     private DcMotor back_right;
 
-    public DriveSubsystem(HardwareMap hwmap){
+    public DriveSubsystem(HardwareMap hwmap, Telemetry tele){
         this.front_left = hwmap.get(DcMotor.class, "fl");
         this.front_right = hwmap.get(DcMotor.class, "fr");
         this.back_left = hwmap.get(DcMotor.class, "bl");
