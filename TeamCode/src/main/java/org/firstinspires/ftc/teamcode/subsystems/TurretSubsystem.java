@@ -4,11 +4,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.teamcode.Constants;
 
 public class TurretSubsystem {
     private DcMotor turret;
     public TurretSubsystem(HardwareMap hwmap, Telemetry tele){
-        this.turret = hwmap.get(DcMotor.class, "turret");
+        this.turret = hwmap.get(DcMotor.class, Constants.MOTOR_NAME_TURRET);
     }
 
     public void setRawPower(double power){
