@@ -7,25 +7,22 @@ import org.firstinspires.ftc.teamcode.Superstructure;
 
 @TeleOp(name="16760 Teleop")
 public class Teleop extends LinearOpMode {
-    private Superstructure struct;
+    private Superstructure superstructure;
 
     public void runOpMode(){
-        //initialize
-        this.struct = new Superstructure(hardwareMap, telemetry);
+        this.superstructure = new Superstructure(hardwareMap, telemetry);
 
         waitForStart();
 
-        //start
-
         while (opModeIsActive()){
-            //loop
-            //drive teleop
-            this.struct.drive.teleopDrive(gamepad1);
+            this.superstructure.drive.teleopDrive(gamepad1);
 
             // other player controls:
-            this.struct.intake.operateIntake(gamepad2);
-            this.struct.turret.operateTurret(gamepad2);
-            this.struct.launcher.controlLauncher(gamepad2);
+            this.superstructure.intake.operateIntake(gamepad2);
+            this.superstructure.turret.operateTurret(gamepad2);
+            this.superstructure.launcher.controlLauncher(gamepad2);
+
+            telemetry.update();
         }
     }
 }

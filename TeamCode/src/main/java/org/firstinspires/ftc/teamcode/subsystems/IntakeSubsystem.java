@@ -55,8 +55,6 @@ public class IntakeSubsystem {
            case DOOR2:
                this.door2.setPosition(IntakeConstants.DOOR_2_OPEN);
                break;
-           default:
-               // ....?
        }
     }
 
@@ -71,8 +69,6 @@ public class IntakeSubsystem {
             case DOOR2:
                 this.door2.setPosition(IntakeConstants.DOOR_2_CLOSED);
                 break;
-            default:
-                // ....?
         }
     }
 
@@ -86,8 +82,8 @@ public class IntakeSubsystem {
     }
 
     public void operateIntake(Gamepad gamepad2){
-        boolean close_all_gates = gamepad2.right_trigger > Constants.TRIGGER_TOLERANCE;
-        boolean open_all_gates = gamepad2.left_trigger > Constants.TRIGGER_TOLERANCE;
+        boolean close_all_gates = gamepad2.right_bumper;//gamepad2.right_trigger > Constants.TRIGGER_TOLERANCE;
+        boolean open_all_gates = gamepad2.left_bumper;//gamepad2.left_trigger > Constants.TRIGGER_TOLERANCE;
 
         boolean intake_toggle = gamepad2.a;
 
