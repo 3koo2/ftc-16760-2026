@@ -12,6 +12,9 @@ public class Teleop extends LinearOpMode {
     public void runOpMode(){
         this.superstructure = new Superstructure(hardwareMap, telemetry);
 
+        telemetry.addLine("Initializing Teleop");
+        telemetry.update();
+
         waitForStart();
 
         while (opModeIsActive()){

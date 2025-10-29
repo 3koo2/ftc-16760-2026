@@ -30,6 +30,13 @@ public class LimelightSubsystem {
         limelight.pipelineSwitch(LimelightConstants.DEFAULT_PIPELINE);
         limelight.start();
         this.pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, Constants.PINPOINT_NAME);
+        // TODO: pinpoint will likely be needed in some other class, so it should (maybe)...
+        // be created in the superstructure and then accessed by superstructure.whatever
+        // idk if we'd make pinpoint in superstructure or a pedro subsystem.
+        // can we pass *this* to a function (ig its actually a constructor) from within a constructor.
+        // probably i actually don't see why we couldn't. It doesn't matter tho, maybe we even create pinpoint and actually
+        // pass the limelight subsystem the GOBildaPinponitControllller... >??? probabloy this rather
+        // than passing it a subsystme and having to like get it or something.
     }
     public double getTagId(){
         limelight.pipelineSwitch(LimelightConstants.APRILTAG_PIPELINE);
