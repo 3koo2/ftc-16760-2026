@@ -17,4 +17,6 @@ public class Constants {
 
     public static final String MOTOR_NAME_FLYWHEEL = "flywheel";
     public static final String MOTOR_NAME_AIM = "aim";
+    public static final String LIMELIGHT_NAME = "limelight";
+    public static final String PINPOINT_NAME = "pinpoint";
 }

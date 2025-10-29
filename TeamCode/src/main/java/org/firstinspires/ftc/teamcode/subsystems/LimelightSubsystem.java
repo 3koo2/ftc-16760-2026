@@ -13,6 +13,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Pose2D;
 import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
 import org.firstinspires.ftc.robotcore.external.navigation.UnnormalizedAngleUnit;
+import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.subsystems.constants.LimelightConstants;
 
 import java.util.List;
@@ -23,12 +24,12 @@ public class LimelightSubsystem {
     GoBildaPinpointDriver pinpoint;
     Pose3D recentPose;
     public LimelightSubsystem(HardwareMap hardwareMap, Telemetry telemetry){
-        this.limelight = hardwareMap.get(Limelight3A.class, LimelightConstants.LIMELIGHT_NAME);
+        this.limelight = hardwareMap.get(Limelight3A.class, Constants.LIMELIGHT_NAME);
         this.telemetry = telemetry;
         telemetry.setMsTransmissionInterval(LimelightConstants.TRANSMISSION_INTERVAL);
         limelight.pipelineSwitch(LimelightConstants.DEFAULT_PIPELINE);
         limelight.start();
-        this.pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "pinpoint");
+        this.pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, Constants.PINPOINT_NAME);
     }
     public double getTagId(){
         limelight.pipelineSwitch(LimelightConstants.APRILTAG_PIPELINE);

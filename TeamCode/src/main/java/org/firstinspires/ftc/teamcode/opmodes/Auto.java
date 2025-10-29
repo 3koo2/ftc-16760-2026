@@ -15,7 +15,7 @@ public class Auto extends LinearOpMode {
         FIRST_SHOOT,
         LINE_UP_INTAKE,
         INTAKE_LINE,
-        POSITION_FOR_SHOOT,
+        LINE_UP_SECOND_SHOTS,
         SECOND_SHOOT,
         END
     }
@@ -38,14 +38,27 @@ public class Auto extends LinearOpMode {
                         obeliskID = read;
                         state = AutoStates.FIRST_SHOOT;
                     }
-                case FIRST_SHOOT:
-                    //TODO: Shoot out the starting balls
                 case LINE_UP_FIRST_SHOTS:
                     //TODO: Line up to shoot the starting balls
+                    break;
+                case FIRST_SHOOT:
+                    superstructure.launcher.moveFlywheel();
+                    break;
+                case LINE_UP_INTAKE:
+                    //TODO: Drive up to the line we intake
+                    break;
                 case INTAKE_LINE:
-                    //TODO: Go to the line of the obelisk (setpoint?)
-                //TODO: Intake the line
-                //
+                    //TODO: Intake the line
+                    break;
+                case LINE_UP_SECOND_SHOTS:
+                    //TODO: Line up the second set of shots
+                    break;
+                case SECOND_SHOOT:
+                    //TODO: Shoot for a second time
+                    break;
+            }
+            if (state == AutoStates.END){
+                break;
             }
         }
     }
